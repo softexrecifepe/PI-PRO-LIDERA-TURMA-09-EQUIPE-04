@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { AppProps } from 'next/app';
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 import "../app/globals.css";
 
 
@@ -9,7 +12,27 @@ export const metadata: Metadata = {
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps}  className="antialiased"/>;
+
+  const router = useRouter();
+  useEffect(() => {
+    const handleRouteChange = () => {
+      const storage = globalThis?.sessionStorage;
+      if (!storage) return;
+      storage.setItem("prevPath", router.asPath);
+    };
+
+    router.events.on("routeChangeStart", handleRouteChange);
+
+    return () => {
+        router.events.off("routeChangeStart", handleRouteChange);
+    };
+}, [router.asPath]);
+  
+  return ( 
+    <AnimatePresence>
+      <Component {...pageProps}  className="antialiased"/>
+    </AnimatePresence>
+  );
 }
 
 export default MyApp;
