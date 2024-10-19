@@ -1,9 +1,8 @@
 
-
 import IconTab, { VAlignOptions } from "@/components/IconTab";
 import Header from "@/components/Header"
 
-export default function Root() {
+export default function Home() {
     return (
         <Header>
             <IconTab route="/help" iconVAlingn={VAlignOptions.MIDDLE} name="Ajuda" icon="bi bi-question"/>
@@ -11,5 +10,6 @@ export default function Root() {
         </Header>
     );
 }
+
 
   
