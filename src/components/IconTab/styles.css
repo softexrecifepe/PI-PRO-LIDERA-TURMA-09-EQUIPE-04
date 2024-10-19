@@ -1,0 +1,32 @@
+
+
+.wrapper {
+    --icon-size: 4rem;
+    --border-size: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 5px;
+}
+
+.name {
+    width: 100%;
+    line-height: 100%;
+    text-align: center;
+}
+.icon-container {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 50%;
+    box-sizing: border-box;
+    overflow: clip;
+    overflow-clip-margin: var(--border-size);
+}
+
+.icon {
+    font-size: var(--icon-size);
+}
