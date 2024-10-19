@@ -18,11 +18,12 @@ export default function IconTab(props: IconTabProps) {
     }
 
     return (
-        <div onClick={handleClick} className={`header-wrapper${props.className ? ` ${props.className}` : ""}`}>
+        <div className={`header-wrapper${props.className ? ` ${props.className}` : ""}`}>
             <div className="logo-container">
 
                 {appLogo && (
                     <Image
+                        onClick={handleClick}
                         alt="Logo"
                         width={84}
                         height={84}
@@ -30,7 +31,7 @@ export default function IconTab(props: IconTabProps) {
                         src={`/assets/${appLogo}`}
                     />
                 )}
-                <h3>{process.env.NEXT_PUBLIC_APP_NAME}</h3>
+                <h3 onClick={handleClick}>{process.env.NEXT_PUBLIC_APP_NAME}</h3>
             </div>
             {props.children}
         </div>
