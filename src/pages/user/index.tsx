@@ -10,7 +10,7 @@ export default function Home() {
                 <IconTab route="/help" iconVAlingn={VAlignOptions.MIDDLE} name="Ajuda" icon="bi bi-question"/>
                 <IconTab route="/user" iconVAlingn={VAlignOptions.BOTTOM} name="Entrar" icon="bi bi-person-fill"/>
             </Header>
-            <Question name="batata" question="Batata?" options={['batata!', 'batata.', 'BATATA :3', 'cenoura >:D']} allowMultiple={false}/>
+            <Question name="teste" question="Teste Pergunta" options={['Opção A', 'Opção B', 'Opção C', 'Opção D']} allowMultiple={false}/>
         </div>
     );
 }
