@@ -1,0 +1,43 @@
+.question-container {
+    background-color: var(--wh-1);
+    padding: 10px;
+    color: var(--bl-1);
+    margin-bottom: 16px;
+    border-top: solid 2px var(--bl-1);
+    border-bottom: solid 2px var(--bl-1);
+  }
+  
+  .options-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .option-item {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-family: var(--text-font-family);
+    font-size: var(--text-font-size);
+    font-weight: var(--text-font-weight);
+    color: var(--bl-1);
+  }
+  
+  .option-item input[type="radio"]::marker:active,
+  .option-item input[type="checkbox"]::marker {
+    background-color: #fff;
+  }
+  
+  .option-item input[type="radio"] {
+    accent-color: var(--primary-03);
+  }
+  
+  .option-item input[type="checkbox"] {
+    accent-color: var(--primary-03);
+  }
+  
+  .option-label {
+    color: var(--bl-2);
+  }
+  
+  
