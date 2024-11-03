@@ -18,6 +18,7 @@ export default function MultipleChoice({ question, options, allowMultiple, name}
             <input
               type={allowMultiple ? "checkbox" : "radio"}
               name={name}
+              value={option}
             />
             <label htmlFor={name} className="option-label">{option}</label>
           </li>

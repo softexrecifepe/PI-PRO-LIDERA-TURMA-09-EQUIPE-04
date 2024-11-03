@@ -1,0 +1,52 @@
+[
+    {
+        "question": "Pergunta 1",
+        "allow_multiple_answers": false,
+        "options": [
+            "opt 1",
+            "opt 2",
+            "opt 3",
+            "opt 4"
+        ]
+    },
+    {
+        "question": "Pergunta 2",
+        "allow_multiple_answers": true,
+        "options": [
+            "opt 1",
+            "opt 2",
+            "opt 3",
+            "opt 4"
+        ]
+    },
+    {
+        "question": "Pergunta 3",
+        "allow_multiple_answers": false,
+        "options": [
+            "opt 1",
+            "opt 2",
+            "opt 3",
+            "opt 4"
+        ]
+    },
+    {
+        "question": "Pergunta 4",
+        "allow_multiple_answers": true,
+        "options": [
+            "opt 1",
+            "opt 2",
+            "opt 3",
+            "opt 4"
+        ]
+    },
+    {
+        "question": "Pergunta 5",
+        "allow_multiple_answers": false,
+        "options": [
+            "opt 1",
+            "opt 2",
+            "opt 3",
+            "opt 4"
+        ]
+    }
+]

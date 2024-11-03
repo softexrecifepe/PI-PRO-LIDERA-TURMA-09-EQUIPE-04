@@ -1,0 +1,32 @@
+.test-page {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.test-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-container {
+    width: 100%;
+    height: fit-content;
+    padding: 40px 10px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 21px 20px;
+    border-radius: 26px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-02);
+}
+.submit-btn h4 {
+    line-height: 100%;
+}
