@@ -1,5 +1,7 @@
+"use client";
+
 import { motion } from "framer-motion";
-import { useRouter } from "next/router";
+import { useRouter, usePathname } from "next/navigation";
 
 import './styles.css';
 
@@ -24,6 +26,7 @@ interface IconTabProps {
 
 export default function IconTab(props: IconTabProps) { 
     const router = useRouter();
+    const pathname = usePathname();
     const storage = globalThis?.sessionStorage;
 
     const iconVAlingn = props.iconVAlingn ? props.iconVAlingn : VAlignOptions.MIDDLE;
@@ -32,7 +35,7 @@ export default function IconTab(props: IconTabProps) {
     const defaultIconColor = props.defaultIconColor ? props.defaultIconColor : "var(--primary-01)";
     const selectedBGColor = defaultIconColor;
     const selectedIconColor = defaultBGColor;
-    const isSelected = props.route === '/' ? router.pathname === props.route : router.pathname.startsWith(props.route);
+    const isSelected = props.route === '/' ?pathname === props.route : pathname.startsWith(props.route);
     const wasSelected = storage ? ( props.route === '/' ? storage.getItem('prevPath') === props.route : (storage.getItem('prevPath') ? storage.getItem('prevPath')!.startsWith(props.route) : false) ) : false;
 
     

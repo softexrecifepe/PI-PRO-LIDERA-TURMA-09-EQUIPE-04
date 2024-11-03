@@ -1,4 +1,4 @@
-
+"use client";
 
 import IconTab, { VAlignOptions } from "@/components/IconTab";
 import Header from "@/components/Header"

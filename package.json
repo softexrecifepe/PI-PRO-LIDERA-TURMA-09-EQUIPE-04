@@ -11,9 +11,9 @@
   "dependencies": {
     "framer-motion": "^11.11.9",
     "next": "14.2.14",
+    "pi-pro-lidera-turma-09-equipe-04": "file:",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.27.0"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/node": "^20",
