@@ -8,7 +8,7 @@
     flex-direction: column;
 }
 
-.field-label {
+.input-wrapper .field-label {
     font-family: var(--h6-font-family);
     font-size: var(--h6-font-size);
     font-style: var(--h6-font-style);
@@ -16,13 +16,13 @@
     letter-spacing: var(--h6-letter-spacing);
 }
 
-.field {
+.input-wrapper .field {
     width: 100%;
     border-radius: 5px;
     padding: 5px;
     line-height: 100%;
 }
 
-.field:placeholder-shown {
+.input-wrapper .field:placeholder-shown {
     color: var(--wh-5);
 }
