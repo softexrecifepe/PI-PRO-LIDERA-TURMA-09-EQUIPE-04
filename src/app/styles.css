@@ -1,0 +1,45 @@
+
+.front-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    color: var(--primary-01);
+}
+
+.description {
+    color: var(--primary-01);
+}
+
+.front-text{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+    text-align: center;
+}
+
+.test-butn{
+    display: flex;
+    color: var(--secondary-01);
+    background-color: var(--primary-02);
+    transition: all 0.1s linear;
+    padding: 26px 32px;
+    border-radius: 26px;
+}
+
+.test-butn:hover {
+    color: var(--secondary-01);
+    background-color: var(--primary-03);
+}
+
+.test-butn:active {
+    color: var(--secondary-01);
+    background-color: var(--primary-04);
+}
+
+.test-butn h3 {
+    line-height: 100%;
+}
