@@ -33,7 +33,7 @@ export default function IconTab(props: IconTabProps) {
                         src={`/assets/${appLogo}`}
                     />
                 )}
-                <h3 onClick={handleClick}>{process.env.NEXT_PUBLIC_APP_NAME}</h3>
+                <h3 className="header-title" onClick={handleClick}>{process.env.NEXT_PUBLIC_APP_NAME}</h3>
             </div>
             {props.children}
         </div>

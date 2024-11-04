@@ -9,12 +9,12 @@
     gap: 5px;
 }
 
-.name {
+.wrapper .name {
     width: 100%;
     line-height: 100%;
     text-align: center;
 }
-.icon-container {
+.wrapper .icon-container {
     width: var(--icon-size);
     height: var(--icon-size);
     display: flex;
@@ -28,6 +28,6 @@
     box-shadow: 0px 4px 4px 0 #00000055;
 }
 
-.icon {
+.wrapper .icon {
     font-size: var(--icon-size);
 }
