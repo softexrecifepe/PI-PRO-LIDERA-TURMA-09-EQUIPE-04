@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import "./globals.css";
 import { AnimatePresence } from "framer-motion";
@@ -17,7 +17,6 @@ export default function RootLayout({
     const storage = globalThis?.sessionStorage;
     if (!storage) return;
 
-    // Salva o caminho atual antes da mudança de rota
     storage.setItem("prevPath", pathname);
   }, [pathname]);
 
