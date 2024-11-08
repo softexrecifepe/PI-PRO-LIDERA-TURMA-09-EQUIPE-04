@@ -16,7 +16,7 @@ export default function Home() {
                 <IconTab route="/user" iconVAlingn={VAlignOptions.BOTTOM} name="Entrar" icon="bi bi-person-fill"/>
             </Header>
             <form className="test-form" onSubmit={handleSubmit}>
-                {questions.map((q, i) => <Question key={i} name={`question-${i}`} question={q.question} options={q.options} allowMultiple={q.allow_multiple_answers}/>)}
+                {questions.questões.map((q) => <Question key={q.id} name={q.id.toString()} question={q.pergunta} options={q.alternativas}/>)}
                 <div className="btn-container">
                     <button type="submit" name="submit-btn" className="submit-btn"><h4>Enviar</h4></button>
                 </div>
