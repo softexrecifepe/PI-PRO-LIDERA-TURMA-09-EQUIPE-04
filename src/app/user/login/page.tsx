@@ -33,7 +33,12 @@ export default function Login() {
 
         try {
             await loginWithEmailAndPassword(email!, password!);
-            router.push("/user");
+            setTimeout(() => 
+            {
+                router.push("/user");
+            },
+            1000);
+            
         } catch (error) {
             console.error("Erro ao fazer login:", error);
             alert("Erro ao fazer login. Tente novamente.");
