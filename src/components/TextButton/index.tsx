@@ -10,7 +10,7 @@ interface TextButtonProps {
     className?: string;
     type?: BtnTypes;
     text: string;
-    onClick?: () => void;
+    onClick?: () => void | Promise<void>;
     textSize?: number;
 }
 
