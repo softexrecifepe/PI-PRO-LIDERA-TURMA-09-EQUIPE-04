@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
 import "./globals.css";
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-
+import { UserProvider } from "@/contexts/UserContext";
 
 export default function RootLayout({
   children,
@@ -22,10 +22,10 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={"antialiased"}>
-        <AnimatePresence>
-          {children}
-        </AnimatePresence>
+      <body className="antialiased">
+        <UserProvider>
+          <AnimatePresence>{children}</AnimatePresence>
+        </UserProvider>
       </body>
     </html>
   );
