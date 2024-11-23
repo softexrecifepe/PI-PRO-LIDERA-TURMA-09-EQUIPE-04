@@ -5,6 +5,7 @@ import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { UserProvider } from "@/contexts/UserContext";
+import { TestProvider } from '@/contexts/TestContext';
 
 export default function RootLayout({
   children,
@@ -23,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <UserProvider>
-          <AnimatePresence>{children}</AnimatePresence>
-        </UserProvider>
+        <TestProvider>
+          <UserProvider>
+            <AnimatePresence>{children}</AnimatePresence>
+          </UserProvider>
+        </TestProvider>
       </body>
     </html>
   );

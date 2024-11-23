@@ -10,9 +10,10 @@ interface MultipleChoiceProps {
   question: string;
   options: Alternative[];
   name: string;
+  required: boolean;
 }
 
-export default function MultipleChoice({ question, options, name}: MultipleChoiceProps) {
+export default function MultipleChoice({ question, options, name, required}: MultipleChoiceProps) {
   return (
     <div className="question-container">
       <h5>{question}</h5>
@@ -23,6 +24,7 @@ export default function MultipleChoice({ question, options, name}: MultipleChoic
               type="radio"
               name={name}
               value={option.pontos}
+              required={required}
             />
             <label htmlFor={name} className="option-label">{option.letra}</label>
           </li>
