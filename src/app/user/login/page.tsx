@@ -57,8 +57,8 @@ export default function Login() {
 
             <form className="fields-container" onSubmit={handleSubmit}>
                 <div className="fields">
-                    <InputField type={FieldTypes.EMAIL} name="email" label="E-Mail" placeholder="Digite seu e-mail..."/>
-                    <InputField type={FieldTypes.PSWD} name="senha" label="Senha" placeholder="Digite sua Senha..."/>
+                    <InputField type={FieldTypes.EMAIL} name="email" label="E-Mail" placeholder="Digite seu e-mail..." required={true}/>
+                    <InputField type={FieldTypes.PSWD} name="senha" label="Senha" placeholder="Digite sua Senha..." required={true}/>
                 </div>
                 <span className="signup-text">Não tem uma conta? <a href="/user/signup" onClick={redirect}>Clique Aqui</a></span>
                 <TextButton text="Confirmar" type={BtnTypes.SUBMIT}/>
