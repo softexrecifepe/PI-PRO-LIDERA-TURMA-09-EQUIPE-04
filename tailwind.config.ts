@@ -15,7 +15,7 @@ module.exports = {
           lightgray: '#E4E4E4', // Cinza claro
         },
         secondary: {
-          white: '#FSF9FF', // Branco
+          bluewhite: '#FSF9FF', // Branco
           lightblue: '#CCD6E5', // Azul claro
         },
         neutral: {
