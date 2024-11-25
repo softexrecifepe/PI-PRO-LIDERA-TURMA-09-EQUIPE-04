@@ -3,12 +3,10 @@
 import { motion } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation";
 
-import './styles.css';
-
 export enum VAlignOptions {
-    TOP = "calc( (-1) * calc(var(--icon-size) / 10))",
-    MIDDLE = "",
-    BOTTOM = "calc(var(--icon-size) / 10)",
+    TOP = "flex-end",
+    MIDDLE = "center",
+    BOTTOM = "flex-start",
 }
 
 interface IconTabProps {
@@ -29,47 +27,56 @@ export default function IconTab(props: IconTabProps) {
     const pathname = usePathname();
     const storage = globalThis?.sessionStorage;
 
-    const iconVAlingn = props.iconVAlingn ? props.iconVAlingn : VAlignOptions.MIDDLE;
-    const selectedIcon = props.selectedIcon ? props.selectedIcon : props.icon
-    const defaultBGColor = props.defaultBGColor ? props.defaultBGColor : "var(--wh-1)";
-    const defaultIconColor = props.defaultIconColor ? props.defaultIconColor : "var(--primary-01)";
-    const selectedBGColor = defaultIconColor;
-    const selectedIconColor = defaultBGColor;
-    const isSelected = props.route === '/' ?pathname === props.route : pathname.startsWith(props.route);
-    const wasSelected = storage ? ( props.route === '/' ? storage.getItem('prevPath') === props.route : (storage.getItem('prevPath') ? storage.getItem('prevPath')!.startsWith(props.route) : false) ) : false;
-
-    
-    console.log(`${props.route} -> ${wasSelected}`)
+    const iconVAlingn = (props.iconVAlingn || VAlignOptions.MIDDLE);
+    const selectedIcon = props.selectedIcon || props.icon;
+    const defaultBGColor = props.defaultBGColor || "var(--wh-1)";
+    const defaultIconColor = props.defaultIconColor || "var(--primary-01)";
+    const selectedBGColor = props.selectedBGColor || defaultIconColor;
+    const selectedIconColor = props.selectedIconColor || defaultBGColor;
+    const isSelected = props.route === '/' ? pathname === props.route : pathname.startsWith(props.route);
+    const wasSelected = storage ? (props.route === '/' ? storage.getItem('prevPath') === props.route : (storage.getItem('prevPath') ? storage.getItem('prevPath')!.startsWith(props.route) : false)) : false;
 
     function handleClick() {
         router.push(props.route);
     }
     
     return (
-    <div onClick={handleClick} className={`wrapper${props.className ? ` ${props.className}`: ""}`}>
-        <motion.div
-            animate={{ 
-                backgroundColor: isSelected ? selectedBGColor : defaultBGColor, 
-                color: isSelected ? selectedIconColor : defaultIconColor,
-            }}
-            initial={wasSelected || isSelected ? { backgroundColor: !isSelected ? selectedBGColor : defaultBGColor, color: !isSelected ? selectedIconColor : defaultIconColor } : false}
-            exit={{ backgroundColor: !isSelected ? selectedBGColor : defaultBGColor, color: !isSelected ? selectedIconColor : defaultIconColor }}
-            transition={{ duration: 0.5 }}
-            className='icon-container'
-            style={{
-                border: `var(--border-size) solid ${selectedBGColor}`,
-                backgroundColor: isSelected ? selectedBGColor : defaultBGColor,
-                color: isSelected ? selectedIconColor : defaultIconColor,
-            }}
+        <div
+            onClick={handleClick}
+            className={`flex flex-col items-center gap-1 w-fit cursor-pointer ${props.className || ""}`}
         >
-            <i 
-                className={`icon ${ isSelected ? selectedIcon : props.icon}`}
-                style={{
-                    transform: ` translateY(${iconVAlingn})`
+            <motion.div
+                animate={{
+                    backgroundColor: isSelected ? selectedBGColor : defaultBGColor,
+                    color: isSelected ? selectedIconColor : defaultIconColor,
                 }}
-            ></i>
-        </motion.div>
-        <h6 className='name'>{props.name}</h6>
-    </div>
+                initial={wasSelected || isSelected
+                    ? {
+                        backgroundColor: !isSelected ? selectedBGColor : defaultBGColor,
+                        color: !isSelected ? selectedIconColor : defaultIconColor,
+                    }
+                    : false}
+                exit={{
+                    backgroundColor: !isSelected ? selectedBGColor : defaultBGColor,
+                    color: !isSelected ? selectedIconColor : defaultIconColor,
+                }}
+                transition={{ duration: 0.5 }}
+                className={`flex items-center justify-center rounded-full w-[4rem] h-[4rem] shadow-md border-[0.3rem] overflow-hidden`}
+                style={{
+                    borderColor: selectedBGColor,
+                    backgroundColor: isSelected ? selectedBGColor : defaultBGColor,
+                    color: isSelected ? selectedIconColor : defaultIconColor,
+                }}
+            >
+                <i
+                    className={`${isSelected ? selectedIcon : props.icon} text-[4rem]`}
+                    style={{
+                        margin: "-1rem",
+                        alignSelf: iconVAlingn,
+                    }}
+                ></i>
+            </motion.div>
+            <h6 className="text-center leading-tight text-sm">{props.name}</h6>
+        </div>
     );
 }

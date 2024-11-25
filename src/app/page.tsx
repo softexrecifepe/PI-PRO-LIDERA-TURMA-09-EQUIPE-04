@@ -1,12 +1,20 @@
 "use client";
 
+import { useUser } from "@/contexts/UserContext";
 import { useRouter } from "next/navigation";
 import IconTab, { VAlignOptions } from "@/components/IconTab";
 import Header from "@/components/Header";
 import "./styles.css";
 
 export default function Root() {
+    const { user, loading } = useUser();
+
+    if (loading) {
+        return <p>Carregando...</p>;
+    }
+
     const router = useRouter();
+    
 
     function handleClick() {
         router.push("/test")
@@ -16,7 +24,7 @@ export default function Root() {
         <div className="front-page">
             <Header>
                 <IconTab route="/help" iconVAlingn={VAlignOptions.MIDDLE} name="Ajuda" icon="bi bi-question"/>
-                <IconTab route="/user" iconVAlingn={VAlignOptions.BOTTOM} name="Entrar" icon="bi bi-person-fill"/>
+                <IconTab route="/user" iconVAlingn={VAlignOptions.BOTTOM} name={user ? user.username : "Entrar"} icon="bi bi-person-fill"/>
             </Header>
 
             <div className="front-text"> 
