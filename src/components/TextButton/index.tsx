@@ -17,11 +17,11 @@ export enum BtnTypes {
       <button
         type={props.type || BtnTypes.BUTTON}
         onClick={props.onClick}
-        className={`rounded-lg bg-primary-teal text-white shadow-md transition-all duration-100 px-4 py-2 hover:bg-primary-skyblue active:bg-primary-navy ${
+        className={`text-btn rounded-lg bg-primary-c3 text-white shadow-md transition-all duration-100 px-4 py-2 hover:bg-primary-c1 active:bg-primary-c2 ${
           props.className ?? ""
         }`}
       >
-        <h4 className="leading-none">{props.text}</h4>
+        <h4 className="cinzel-regular text-[3rem] leading-none ">{props.text}</h4>
       </button>
     );
   }

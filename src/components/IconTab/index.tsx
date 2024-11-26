@@ -76,7 +76,7 @@ export default function IconTab(props: IconTabProps) {
                     }}
                 ></i>
             </motion.div>
-            <h6 className="text-center leading-tight text-sm">{props.name}</h6>
+            <h6 className="text-center leading-tight text-s text-neutral-purewhite cinzel-regular">{props.name}</h6>
         </div>
     );
 }

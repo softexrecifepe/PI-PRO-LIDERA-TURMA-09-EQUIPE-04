@@ -19,7 +19,7 @@ export default function IconTab(props: IconTabProps) {
 
     return (
         <div
-            className={`flex items-center w-full h-fit bg-primary-skyblue p-2 gap-5 shadow-md ${
+            className={`flex items-center w-full h-fit bg-primary-c3 p-2 gap-5 shadow-md px-9 ${
                 props.className || ""
             }`}
         >
@@ -30,12 +30,12 @@ export default function IconTab(props: IconTabProps) {
                         alt="Logo"
                         width={84}
                         height={84}
-                        className="w-21 h-21 rounded-lg bg-neutral-purewhite overflow-hidden cursor-pointer"
+                        className="w-21 h-21 overflow-hidden cursor-pointer"
                         src={`/assets/${appLogo}`}
                     />
                 )}
                 <h3
-                    className="text-neutral-purewhite cursor-pointer"
+                    className="text-neutral-purewhite cursor-pointer cinzel-bold text-5xl"
                     onClick={handleClick}
                 >
                     {process.env.NEXT_PUBLIC_APP_NAME}
