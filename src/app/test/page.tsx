@@ -3,6 +3,7 @@
 import "./styles.css"
 import { useUser } from "@/contexts/UserContext";
 import { useTestContext, TestResult } from '@/contexts/TestContext';
+import { saveTestResult } from "@/services/testService";
 
 import { useRouter } from "next/navigation";
 
@@ -36,6 +37,17 @@ export default function Test() {
         });
     
         setTestResults(results);
+
+        if (user && user.uid) {
+            try {
+                await saveTestResult(user.uid, results);
+            } catch (error) {
+                console.error("Erro ao salvar resultado do teste:", error);
+            }
+        } else {
+            console.error("Usuário não está autenticado.");
+        }
+
         router.push("/test/result")
         
     }

@@ -63,15 +63,16 @@ export async function getUserData(uid: string): Promise<User | null> {
     if (userDoc.exists()) {
       const data = userDoc.data();
 
-      // Converter os dados para o tipo User
+
       const user: User = {
+        uid: uid,
         name: data.name,
         username: data.username,
         birth: data.birth instanceof Timestamp ? data.birth.toDate() : new Date(data.birth),
         phone: data.phone,
         email: data.email,
         gender: data.gender,
-        password: data.password, // Se aplicável
+        password: data.password,
         createdAt: data.createdAt instanceof Timestamp ? data.createdAt.toDate() : new Date(data.createdAt),
       };
 

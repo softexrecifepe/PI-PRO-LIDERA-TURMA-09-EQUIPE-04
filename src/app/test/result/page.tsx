@@ -5,30 +5,31 @@ import "./styles.css"
 import { useUser } from "@/contexts/UserContext";
 import IconTab, { VAlignOptions } from "@/components/IconTab";
 import Header from "@/components/Header";
-import { useTestContext } from "@/contexts/TestContext";
+import { TestResult, useTestContext } from "@/contexts/TestContext";
 import TextButton from "@/components/TextButton";
 import LoadingScreen from "@/components/Loading";
+import { getLatestTestByUser } from "@/services/testService";
+import { useState, useEffect } from "react";
 
 import jsPDF from "jspdf";
 
 export default function Result() {
     const { user, loading } = useUser();
     const { testResults } = useTestContext();
+    const [scoreResult, setScoreResult] = useState<{
+        score: number;
+        description: string;
+        explanation: string[];
+    } | null>(null);
+    const [loadingResult, setLoading] = useState(true);
 
-    if (loading) {
-        return <LoadingScreen/>;
-    }
-
-    // Função para calcular a pontuação total e determinar o resultado
-    const getScoreResult = () => {
+    function getScoreResult (testResults: TestResult) {
         if (!testResults) return null;
 
-        // Calcula a pontuação total
         const totalScore = Object.values(testResults).reduce((sum, value) => {
             return sum + value;
         }, 0);
 
-        // Determina o resultado com base na pontuação
         if (totalScore >= 18 && totalScore <= 35) {
             return {
                 score: totalScore,
@@ -91,8 +92,35 @@ export default function Result() {
             };
         }
     };
+    
+    useEffect(() => {
+        async function fetchData() {
+            if (!user?.uid) {
+                const result = getScoreResult(testResults);
+                setScoreResult(result);
+                setLoading(false);
+            } else {
+                try {
+                    const testResults = await getLatestTestByUser(user.uid);
+                    const result = getScoreResult(testResults.results);
+                    setScoreResult(result);
+                } catch (error) {
+                    console.error("Error fetching test results:", error);
+                } finally {
+                    setLoading(false);
+                }
+            }
+        }
+        fetchData();
+    }, [user]);
 
-    const scoreResult = getScoreResult();
+    if (loading || loadingResult) {
+        return <LoadingScreen />;
+    }
+    
+
+    
+
 
     const handleDownloadPDF = () => {
         console.log(scoreResult)
