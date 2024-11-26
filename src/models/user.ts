@@ -1,6 +1,7 @@
 import Gender from "./gender"
 
 interface User {
+    uid?: string,
     name: string
     username: string
     birth?: Date

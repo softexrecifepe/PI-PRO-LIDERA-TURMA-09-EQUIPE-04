@@ -11,6 +11,7 @@
   "dependencies": {
     "firebase": "^11.0.2",
     "framer-motion": "^11.11.9",
+    "jspdf": "^2.5.2",
     "next": "14.2.14",
     "pi-pro-lidera-turma-09-equipe-04": "file:",
     "react": "^18.3.1",
