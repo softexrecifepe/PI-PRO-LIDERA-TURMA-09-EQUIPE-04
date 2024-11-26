@@ -121,10 +121,10 @@ export async function loginWithGoogle(): Promise<void> {
       console.log("Usuário ainda não cadastrado no Firestore, cadastrando...");
       await setDoc(userDocRef, {
         username: user.displayName,
-        name: userInfo.name,
-        gender: userInfo.gender,
-        birth: userInfo.birthday,
-        phone: user.phoneNumber,
+        name: userInfo.name  || "",
+        gender: userInfo.gender  || "UNKNOWN",
+        birth: userInfo.birthday || new Date(),
+        phone: user.phoneNumber  || "",
         email: user.email,
         createdAt: new Date(),
       });
@@ -152,10 +152,10 @@ export async function registerWithGoogle(): Promise<void> {
 
     await setDoc(doc(db, "users", user.uid), {
       username: user.displayName,
-      name: userInfo.name,
-      gender: userInfo.gender,
-      birth: userInfo.birthday,
-      phone: user.phoneNumber,
+      name: userInfo.name || "",
+      gender: userInfo.gender || "UNKNOWN",
+      birth: userInfo.birthday || new Date(),
+      phone: user.phoneNumber || "",
       email: user.email,
       createdAt: new Date(),
     });

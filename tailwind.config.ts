@@ -9,13 +9,13 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          navy: '#183E56', // Azul marinho
-          teal: '#3A7FA9', // Verde-azulado
-          skyblue: '#62A0C5', // Azul céu
-          lightgray: '#E4E4E4', // Cinza claro
+          c1: '#183E56', // Azul marinho
+          c2: '#3A7FA9', // Verde-azulado
+          c3: '#182128', // Azul céu
+          c4: '#E4E4E4', // Cinza claro
         },
         secondary: {
-          bluewhite: '#FSF9FF', // Branco
+          c1: '#FSF9FF', // Branco
           lightblue: '#CCD6E5', // Azul claro
         },
         neutral: {

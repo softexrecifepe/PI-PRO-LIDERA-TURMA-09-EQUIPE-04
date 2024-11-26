@@ -18,8 +18,10 @@ export enum FieldTypes {
     alt?: string;
     type?: FieldTypes;
     placeholder?: string;
+    value?: string;
     textSize?: number;
     required?: boolean;
+    disabled?: boolean;
     options?: InputOption[];
   }
   
@@ -34,17 +36,17 @@ export enum FieldTypes {
         <div className={`w-full flex flex-col gap-2 p-2 ${props.className ?? ""}`}>
           <label
             htmlFor={props.name}
-            className="text-gray-700 font-medium text-sm"
+            className="cinzel-bold text-gray font-medium text-sm"
           >
             {props.label}
           </label>
           <select
             name={props.name}
             required={props.required}
-            className="w-full rounded-md p-2 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            className="averia-serif-libre-regular w-full rounded-md p-2 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
           >
             {props.options.map((opt, index) => (
-              <option key={index} value={opt.value}>
+              <option key={`${opt}-${index}`} value={opt.value}>
                 {opt.label}
               </option>
             ))}
@@ -56,16 +58,18 @@ export enum FieldTypes {
         <div className={`w-full flex flex-col gap-2 p-2 ${props.className ?? ""}`}>
           <label
             htmlFor={props.name}
-            className="text-gray-700 font-medium text-m"
+            className="cinzel-bold text-gray-700 font-medium text-m"
           >
             {props.label}
           </label>
           <input
             type={type}
             name={props.name}
+            value={props.value}
             required={props.required}
+            disabled={props.disabled}
             placeholder={props.placeholder}
-            className="w-full rounded-md p-2 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none placeholder-gray-400"
+            className="averia-serif-libre-regular w-full rounded-md p-2 border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none placeholder-gray-400"
           />
         </div>
       );

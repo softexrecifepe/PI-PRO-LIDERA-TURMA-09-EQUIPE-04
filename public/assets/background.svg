@@ -1,0 +1,47 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 7111.1069 4000"
+  height="4000"
+  width="7111.1069"
+  xml:space="preserve"
+  id="bg-svg"
+  version="1.1"
+>
+  <g transform="matrix(1.3333333,0,0,-1.3333333,0,4000)" id="g10">
+    <path
+      id="path12"
+      fill="var(--bg-1, black)"
+      style="sfill-opacity:1;fill-rule:nonzero;stroke:none"
+      d="M 0,0.004 H 5333.329 V 3000 H 0 Z"
+    />
+    <g id="g14">
+      <g clip-path="url(#clipPath20)" id="g16">
+        <g transform="translate(5333.3301,6e-4)" id="g22">
+          <path
+            id="path24"
+            class="bg"
+            fill="var(--bg-2, black)"
+            style="fill-opacity:1;fill-rule:evenodd;stroke:none"
+            d="m 0,0 h -1985.001 l -2708.365,2626.544 c -105.129,101.953 -152.727,239.394 -142.803,373.456 H 0 Z"
+          />
+        </g>
+        <g transform="translate(5290.207,3000)" id="g26">
+          <path
+            id="path28"
+            fill="var(--bg-3, black)"
+            style="fill-opacity:1;fill-rule:evenodd;stroke:none"
+            d="M 0,0 1.973,-3000 H -751.726 L -3834.546,0 Z"
+          />
+        </g>
+        <g transform="translate(5333.3301,6e-4)" id="g30">
+          <path
+            id="path32"
+            fill="var(--bg-4, black)"
+            style="fill-opacity:1;fill-rule:evenodd;stroke:none"
+            d="M 0,0 H -146.729 L -3240.182,3000 H 0 Z"
+          />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

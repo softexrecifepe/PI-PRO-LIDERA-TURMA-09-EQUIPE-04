@@ -10,6 +10,7 @@ import IconTab, { VAlignOptions } from "@/components/IconTab";
 import Header from "@/components/Header"
 import Question from "@/components/Question"
 import questions from "@/data/questions.json"
+import LoadingScreen from "@/components/Loading";
 
 import { FormEvent } from "react";
 
@@ -20,7 +21,7 @@ export default function Test() {
     const router = useRouter();
 
     if (loading) {
-        return <p>Carregando...</p>;
+        return <LoadingScreen/>;
     }  
 
     async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -40,15 +41,17 @@ export default function Test() {
     }
 
     return (
-        <div className="test-page">
+        <div className="flex flex-col gap-[10px]">
             <Header>
                 <IconTab route="/help" iconVAlingn={VAlignOptions.MIDDLE} name="Ajuda" icon="bi bi-question"/>
                 <IconTab route="/user" iconVAlingn={VAlignOptions.BOTTOM} name={user ? user.username : "Entrar"} icon="bi bi-person-fill"/>
             </Header>
-            <form className="test-form" onSubmit={handleSubmit}>
+            <form className="flex flex-col gap-[10px]" onSubmit={handleSubmit}>
                 {questions.questões.map((q) => <Question key={q.id} name={q.id.toString()} question={q.pergunta} options={q.alternativas} required={true}/>)}
-                <div className="btn-container">
-                    <button type="submit" name="submit-btn" className="submit-btn"><h4>Enviar</h4></button>
+                <div className="w-full h-fit px-[10px] py-[40px]">
+                    <button type="submit" name="submit-btn" className="cinzel-bold text-[2rem] w-full px-[20px] py-[21px] rounded-md flex flex-col text-center items-center justify-center bg-primary-c3 hover:bg-primary-c1 active:bg-primary-c2 text-neutral-purewhite transition-all duration-100">
+                        <h4 className="leading-[100%]">Enviar</h4>
+                    </button>
                 </div>
                 
             </form>

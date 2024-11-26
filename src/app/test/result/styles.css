@@ -1,0 +1,6 @@
+
+.result-container{
+
+    background-color: rgb(from var(--primary-04) r g b / calc(alpha - 0.5));
+
+}
