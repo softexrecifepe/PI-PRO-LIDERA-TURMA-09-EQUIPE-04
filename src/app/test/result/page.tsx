@@ -9,6 +9,8 @@ import { useTestContext } from "@/contexts/TestContext";
 import TextButton from "@/components/TextButton";
 import LoadingScreen from "@/components/Loading";
 
+import jsPDF from "jspdf";
+
 export default function Result() {
     const { user, loading } = useUser();
     const { testResults } = useTestContext();
@@ -92,6 +94,42 @@ export default function Result() {
 
     const scoreResult = getScoreResult();
 
+    const handleDownloadPDF = () => {
+        console.log(scoreResult)
+        if (!scoreResult) return;
+
+        const doc = new jsPDF();
+        const margin = 10;
+        let y = margin;
+
+        doc.setFont("times", "bold");
+        doc.setFontSize(18);
+        doc.text("Resultado da Avaliação", margin, y);
+        y += 10;
+
+        doc.setFont("times", "normal");
+        doc.setFontSize(14);
+        doc.text(`Descrição: ${scoreResult.description}`, margin, y);
+        y += 10;
+
+        doc.text(`Pontuação: ${scoreResult.score}`, margin, y);
+        y += 10;
+
+        doc.setFontSize(12);
+        scoreResult.explanation.forEach((msg, index) => {
+            const lines = doc.splitTextToSize(msg, 180);
+            doc.text(lines, margin, y);
+            y += lines.length * 7;
+
+            if (y > 280) {
+                doc.addPage();
+                y = margin;
+            }
+        });
+
+        doc.save("resultado.pdf");
+    };
+
     return (
         <div>
             <Header>
@@ -109,7 +147,7 @@ export default function Result() {
                     <div className="result-container mt-[1rem] mb-[2rem] flex flex-col justify-center items-center w-[70%] p-[50px] gap-5 shadow-md rounded-md">
                         <h2 className="text-[3rem] cinzel-bold leading-none">{scoreResult.description}</h2>
                         <p className="text-[1.2rem] cinzel-regular mb-[2rem] leading-none">Sua pontuação: <strong className="cinzel-bold">{scoreResult.score}</strong></p>
-                        {scoreResult.explanation.map(( msg, idx ) => <p key={idx} className="indent-10 text-justify text-[1.2rem] averia-serif-libre-regular leading-none text-center">{msg}</p>)}
+                        {scoreResult.explanation.map(( msg ) => <p className="indent-10 text-justify text-[1.2rem] averia-serif-libre-regular leading-none text-center">{msg}</p>)}
                         
                     </div>
                 ) : (
@@ -117,7 +155,7 @@ export default function Result() {
                         Não foi possível calcular o resultado.
                     </p>
                 )}
-                <TextButton text="Baixar PDF" onClick={() => {console.log("PDF")}}/>
+                <TextButton text="Baixar PDF" onClick={handleDownloadPDF}/>
             </div>
         </div>
     );
