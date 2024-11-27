@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCjDhS5KB1kBMsqgNwFV6202pyHdqjSOjE",
-  authDomain: "prolideraback--prolidera-skills.us-central1.hosted.app",
+  authDomain: "prolidera-skills.firebaseapp.com",
   projectId: "prolidera-skills",
   storageBucket: "prolidera-skills.firebasestorage.app",
   messagingSenderId: "239749573863",
