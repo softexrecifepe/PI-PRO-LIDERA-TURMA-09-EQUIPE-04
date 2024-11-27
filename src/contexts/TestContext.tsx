@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 export interface TestResult {
-  [questionId: string]: number; // Exemplo: { "q1": 5, "q2": 3 }
+  [questionId: string]: number;
 }
 
 interface TestContextType {
